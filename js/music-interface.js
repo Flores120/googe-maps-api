@@ -17,8 +17,6 @@ $(document).ready(function(){
     event.preventDefault();
     var song = $('#inputSong').val();
     $.get('http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + song + '&api_key=' + apiKey + '&format=json').then(function(response) {
-      console.log(response);
-      console.log(response.results.trackmatches.track[0].artist);
       for (var i = 0; i < response.results.trackmatches.track.length; i++) {
         songArray.push(response.results.trackmatches.track[i].artist);
       }
@@ -27,7 +25,22 @@ $(document).ready(function(){
         $(".display").append("<li>" +songArray + "</li>");
 
       });
-
     });
   });
+
+  $('#topCountryArtist').submit(function(event){
+    event.preventDefault();
+    var countryInput = [];
+    var country = $('#country').val();
+      $.get('http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=' + country + '&api_key=' + apiKey + '&format=json').then(function(response) {
+        // console.log(response.topartists.artist);
+        for (var i = 0; i < response.topartists.artist.length; i++) {
+          countryInput.push(response.topartists.artist[i].name);
+        }
+        $('.topArt').text("Top Artists in " + country + " are listed below:");
+        countryInput.forEach(function(countryInput) {
+          $(".topArt").append("<li>" + countryInput + "</li>");
+    });
+  });
+});
 });

@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="build/css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-     <script type="text/javascript" src="build/js/app.js"></script>
-     <style media="screen"></style>
-    <title>music search</title>
+    <script type="text/javascript" src="build/js/app.js"></script>
+        <title>music search</title>
   </head>
   <body>
-    <h2>Please enter a Country Name below to see the top artisits from that country</h2>
-    <form id = "topCountryArtist">
-      <input id="country" type="text">
-      <button type="submit">Weekly top 10</button>
-    </form>
-    <div class="topArt"></div>
-
     <h1>enter your favorite artist</h1>
     <form id="artist">
       <input id="inputArt" type="text">
@@ -24,13 +18,28 @@
     <img id="images" src=""/>
     <h3 id = "streamable"></h3>
     <a href ="" id='link'>click here to see their website</a>
-    <h1>Enter your favorite song title</h1>
 
+
+    <h1>Enter your favorite song title</h1>
     <form id="song">
       <input id="inputSong" type="text">
       <button type="submit" id="songtitle" name="button">Enter</button>
     </form>
-
     <div class="display"></div>
+
+
+    <h1>Please enter a Country Name below to see the top arist from that country</h1>
+    <form id = "topCountryArtist">
+      <input id="country" type="text">
+      <button type="submit">Weekly top 10</button>
+    </form>
+
+
+
+    <div class="topArt"><span></span>
+
+      <img id="img" src=""/>
+    </div>
+
   </body>
 </html>

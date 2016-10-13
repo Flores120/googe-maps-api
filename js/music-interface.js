@@ -31,15 +31,27 @@ $(document).ready(function(){
   $('#topCountryArtist').submit(function(event){
     event.preventDefault();
     var countryInput = [];
+    var imgArray = [];
     var country = $('#country').val();
-      $.get('http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=' + country + '&api_key=' + apiKey + '&format=json').then(function(response) {
-        // console.log(response.topartists.artist);
-        for (var i = 0; i < response.topartists.artist.length; i++) {
-          countryInput.push(response.topartists.artist[i].name);
-        }
-        $('.topArt').text("Top Artists in " + country + " are listed below:");
-        countryInput.forEach(function(countryInput) {
-          $(".topArt").append("<li>" + countryInput + "</li>");
+    $.get('http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=' + country + '&api_key=' + apiKey + '&format=json').then(function(response) {
+      console.log(response.topartists.artist);
+
+      for (var i = 0; i < response.topartists.artist.length; i++) {
+        countryInput.push(response.topartists.artist[i].name);
+        imgArray.push(response.topartists.artist[i].image[4]['#text']);
+      }
+
+      $('.topArt').text("Top Artists in " + country + " are listed below:");
+      var counter = 0;
+      countryInput.forEach(function(countryInput) {
+        $(".topArt").append("<li>" + countryInput + "<img id='img" + counter + "' src=''></li>");
+        counter++;
+      });
+      counter = 0;
+      imgArray.forEach(function(imgArray) {
+        console.log(imgArray);
+        $("#img" + counter).attr("src", imgArray);
+        counter++;
     });
   });
 });

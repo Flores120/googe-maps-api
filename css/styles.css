@@ -1,0 +1,35 @@
+input[type="text"]{
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    width: 200px;
+
+}
+input[type="text"]:focus {
+  border: 3px solid #555;
+  outline: none;
+}
+button {
+  border: none;
+  color: white;
+  background-color: #ff4268;
+  padding: 12px 20px;
+  -webkit-transition-duration: 0.4s;
+   transition-duration: 0.4s;
+   cursor: pointer;
+}
+button:hover {
+    background-color: white;
+    color: #ff4268;
+    border: 2px solid #ff4268;
+}
+
+.topArt{
+  position: absolute;
+   top: 500px;
+   left: 0;
+   width: 20%;
+}

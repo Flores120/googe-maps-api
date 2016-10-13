@@ -7,7 +7,7 @@ $(document).ready(function(){
     $.get('http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=' + artist + '&api_key=' + apiKey + '&format=json').then(function(response) {
       $('#name').text("Name: " + (response.results.artistmatches.artist[0].name));
       $("#link").attr("href", response.results.artistmatches.artist[0].url);
-      $('#streamable').text("number of songs to stream through Last.fm: " + (response.results.artistmatches.artist[0].streamable));
+      $('#streamable').text("Number of songs to stream through Last.fm: " + (response.results.artistmatches.artist[0].streamable));
       $("#images").attr("src", (response.results.artistmatches.artist[0].image[3]["#text"]));
     });
   });
@@ -44,8 +44,9 @@ $(document).ready(function(){
       $('.topArt').text("Top Artists in " + country + " are listed below:");
       var counter = 0;
       countryInput.forEach(function(countryInput) {
-        $(".topArt").append("<li>" + countryInput + "<img id='img" + counter + "' src=''></li>");
+        $(".topArt").append("<img id='img" + counter + "' src=''>" + countryInput);
         counter++;
+        // $('#text').append(countryInput);
       });
       counter = 0;
       imgArray.forEach(function(imgArray) {

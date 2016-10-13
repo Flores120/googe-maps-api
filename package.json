@@ -20,5 +20,14 @@
     "gulp-util": "^3.0.7",
     "jshint": "^2.9.3",
     "vinyl-source-stream": "^1.1.0"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Flores120/musicSearch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Flores120/musicSearch/issues"
+  },
+  "homepage": "https://github.com/Flores120/musicSearch#readme"
 }
